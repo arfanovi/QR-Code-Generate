@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #qrcode {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate a QR Code for a Link</h1>
+
+    <input type="text" id="linkInput" placeholder="Enter your link here" style="width: 300px; padding: 10px;">
+    <button onclick="generateQRCode()">Generate QR Code</button>
+
+    <div id="qrcode"></div>
+
+    <script>
+        function generateQRCode() {
+            // Get the link from the input field
+            var link = document.getElementById("linkInput").value;
+            
+            // Clear previous QR code
+            document.getElementById("qrcode").innerHTML = "";
+
+            // Generate QR code if the link is not empty
+            if (link) {
+                new QRCode(document.getElementById("qrcode"), {
+                    text: link,
+                    width: 128,
+                    height: 128,
+                });
+            } else {
+                alert("Please enter a valid link!");
+            }
+        }
+    </script>
+
+
+
+
+<hr>
+<h1 style="font-size: 10px; color: green;"><strong><i>Author: Ovi</i></strong></h1>
+</body>
+</html>
